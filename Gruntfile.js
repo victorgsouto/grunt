@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
    grunt.initConfig({
+        //cria uma copia do diretorio html
         copy: {
               public: {
                    cwd: 'html', 
@@ -8,6 +9,7 @@ module.exports = function(grunt) {
                    expand: true
               }
          }, 
+         //apaga o diretorio
          clean: {
               dist: {
                   src: 'dist'
@@ -21,91 +23,102 @@ module.exports = function(grunt) {
          usemin: {
          	html: 'dist/**/*.html'
          },
+
          rev: {
          	options: {
          		encoding: 'utf8',
          		algorithm: 'md5',
          		length: 8
-         	},
-         	imagens: {
-         		src: ['dist/img/**/*.{png,jpg,gif}']
-         	},
-         	minificados: {
-         		src: ['dist/js/**/*.min.js', 'dist/css/**/*.css']
-         	}
-
+           	},
+           	imagens: {
+           		src: ['dist/img/**/*.{png,jpg,gif}']
+           	},
+           	minificados: {
+           		src: ['dist/js/**/*.min.js', 'dist/css/**/*.css']
+           	}
          },
+
          coffee: {
-		   compilar: { 
-		      expand: true,
-		      cwd: 'html/coffee', 
-		      src: ['**/*.coffee'],
-		      dest: 'html/js', 
-		      ext: '.js'
-		   }
-		},
+		      compilar: { 
+  		      expand: true,
+  		      cwd: 'html/coffee', 
+  		      src: ['**/*.coffee'],
+  		      dest: 'html/js', 
+  		      ext: '.js'
+  		      }
+		    },
 
-		less: {
-		   compilar: {
-		      expand: true,
-		      cwd: 'html/less',
-		      src: ['**/*.less'],
-		      dest: 'html/css', 
-		      ext: '.css'
-		   }
-		},
-     browser_sync: {
-         bsFiles: {
-            src : ['html/**/*']
-        },
-        options: {
-            // Definimos um IP manualmente.
-            host : "192.168.33.10",
-            watchTask: true,
-            server: {
-                baseDir: 'html'
-            }
-        },
-    },
+        //compila arquivos do less
+    		less: {
+    		   compilar: {
+    		      expand: true,
+    		      cwd: 'html/less',
+    		      src: ['**/*.less'],
+    		      dest: 'html/css', 
+    		      ext: '.css'
+    		   }
+    		},
 
-		watch:{
-			coffee: {
-				options: {
-					event: ['added', 'changed']
-				},
-				files: 'html/coffee/**/*.coffee',
-				tasks: 'coffee:compilar'
-			},
-			less: {
-				options: {
-					event: ['added', 'changed']
-				},
-				files: 'html/less/**/*.less',
-				tasks: 'less:compilar'
-			},
-			js:{
-				options:{
-					event: ['changed']
-				},
-				files: 'html/js/**/*.js',
-				tasks: 'jshint:js'
-			}
-		},
-		jshint: {
-			js:{
-				src: ['html/js/**/*.js']
-			}
-		},
+        //Sincroniza alterações
+         browser_sync: {
+             bsFiles: {
+                src : ['html/**/*']
+            },
+            options: {           
+                host : "192.168.33.10",
+                watchTask: true,
+                server: {
+                    baseDir: 'html'
+                }
+            },
+        },
+
+        //Visualiza se os arquivos são alterados coffee, less, js
+    		watch:{
+    			coffee: {
+    				options: {
+    					event: ['added', 'changed']
+    				},
+    				files: 'html/coffee/**/*.coffee',
+    				tasks: 'coffee:compilar'
+    			},
+    			less: {
+    				options: {
+    					event: ['added', 'changed']
+    				},
+    				files: 'html/less/**/*.less',
+    				tasks: 'less:compilar'
+    			},
+    			js:{
+    				options:{
+    					event: ['changed']
+    				},
+    				files: 'html/js/**/*.js',
+    				tasks: 'jshint:js'
+    			}
+    		},
+
+        //
+    		jshint: {
+    			js:{
+    				src: ['html/js/**/*.js']
+    			}
+    		},
 		
   });
+
+
   //para ativarmos a tarefa onde ela sincroniza os browser com a watch
   grunt.registerTask('server', ['browser_sync', 'watch']);
   //regista tarefa onde ela faz na ordem a tarefa clean e copy 
   grunt.registerTask('dist', ['clean','copy']); 
-
+  //processo de minificar
   grunt.registerTask('minifica', ['useminPrepare', 'concat', 'uglify', 'cssmin','rev', 'usemin']);
-
+  // precosso default
   grunt.registerTask('default', ['dist', 'minifica']);
+
+  /*importa as tarefas*/
+
   //duplica as pastas / arquivo etc...
   grunt.loadNpmTasks('grunt-contrib-copy');
   //apaga as pastas
