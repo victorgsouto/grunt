@@ -19,7 +19,7 @@ Automatizando tarefas do dia-a-dia
 ```npm install grunt-contrib-cssmin --save-dev```<br>
 
 
-** build:css css/index.min.css / build:js js/index.min.js **<br>
+**build:css css/index.min.css / build:js js/index.min.js**<br>
 ```npm install grunt-usemin --save-dev```<br>
 
 **Tirando o cacheamento de imagens, js, css**<br>
