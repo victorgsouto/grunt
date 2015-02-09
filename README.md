@@ -3,7 +3,7 @@ Automatizando tarefas do dia-a-dia
 
 ## Plugins
 
-** Duplica as pastas / Arquivos etc... **<br>
+**Duplica as pastas / Arquivos etc...**<br>
 ```npm install grunt-contrib-copy --save-dev```<br>
 
 **Apaga pastas / arquivos etc...**<br>
