@@ -1,4 +1,4 @@
-# Workflow com Grunt
+# Grunt
 Automatizando tarefas do dia-a-dia
 
 ## Plugins
