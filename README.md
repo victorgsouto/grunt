@@ -3,39 +3,39 @@ Automatizando tarefas do dia-a-dia
 
 ## Plugins
 
-Duplica as pastas / Arquivos etc...
-'npm install grunt-contrib-copy --save-dev'
+** Duplica as pastas / Arquivos etc... **<br>
+```npm install grunt-contrib-copy --save-dev```<br>
 
-Apaga pastas / arquivos etc...
-'npm install grunt-contrib-clean --save-dev'
+**Apaga pastas / arquivos etc...**<br>
+```npm install grunt-contrib-clean --save-dev```<br>
 
-Concatenação
-'npm install grunt-contrib-concat --save-dev'
+**Concatenação**<br>
+```npm install grunt-contrib-concat --save-dev```<br>
 
-Mimificacao
-'npm install grunt-contrib-uglify --save-dev'
+**Mimificacao**<br>
+```npm install grunt-contrib-uglify --save-dev```<br>
 
-Mimificar css
-'npm install grunt-contrib-cssmin --save-dev'
+**Mimificar css**<br>
+```npm install grunt-contrib-cssmin --save-dev```<br>
 
 
-<!-- build:css css/index.min.css --> <!-- build:js js/index.min.js -->
-'npm install grunt-usemin --save-dev'
+** build:css css/index.min.css / build:js js/index.min.js **<br>
+```npm install grunt-usemin --save-dev```<br>
 
-Tirando o cacheamento de imagens, js, css
-'npm install grunt-rev --save-dev'
+**Tirando o cacheamento de imagens, js, css**<br>
+```npm install grunt-rev --save-dev```<br>
 
-Compilador less
-'npm install grunt-contrib-less --save-dev'
+**Compilador less**<br>
+```npm install grunt-contrib-less --save-dev```<br>
 
-Compilador coffee script 
-'npm install grunt-contrib-coffee --save-dev'
+**Compilador coffee script** <br>
+```npm install grunt-contrib-coffee --save-dev```<br>
 
-Monitora arquivos alterados
-'npm install grunt-contrib-watch --save-dev'
+**Monitora arquivos alterados**<br>
+```npm install grunt-contrib-watch --save-dev```<br>
 
-Verifica se tem algum erro de digitação no js
-'npm install grunt-contrib-jshint --save-dev'
+**Verifica se tem algum erro de digitação no js**<br>
+```npm install grunt-contrib-jshint --save-dev```<br>
 
-Sincroniza ações em varios dispositivos
-'npm install grunt-browser-sync --save-dev'
+**Sincroniza ações em varios dispositivos**<br>
+```npm install grunt-browser-sync --save-dev```<br>
